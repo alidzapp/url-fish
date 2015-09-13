@@ -6,6 +6,17 @@
 
 	passrun.controller('PassrunCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
 		$scope.title = 'Pass.run';
+
+		$scope.submit = function(){
+			var run_new = $http({
+				method: 'POST',
+				url: '/requests/new.php'
+			});
+
+		  	run_new.then(function(response) {
+		    	console.log(response.data);
+		    });
+		};
 	}]);
 
 	passrun.directive('focus', function() {

@@ -5,12 +5,13 @@ RewriteEngine On
 # Redirect to error handling template
 Options -Indexes
 ErrorDocument 403 /templates/notfound.php
+ErrorDocument 404 /templates/notfound.php
+
+# Redirect requests with one or more trailing slashes to appropriate url
+# Make sure project folders avoid this rule
+RewriteRule ^assets|requests|templates - [L]
+RewriteRule ^([\w-]+)\/{1}(.*)$ /$1 [L,R=301]
 
 # Make sure every requests is handled by main template
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php [L]
-
-# Redirect requests with one or more trailing slashes to appropriate url
-# Make sure project folders avoid this rule
-RewriteRule ^assets|templates - [L]
-RewriteRule ^([\w-]+)\/{1}(.*)$ /$1 [L,R=301]
