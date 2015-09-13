@@ -9,14 +9,29 @@
 	}]);
 
 	passrun.controller('HomeCtrl', ['$scope', '$http', '$httpParamSerializer', function($scope, $http, $httpParamSerializer) {
-		$scope.run = {};
 		$scope.data = undefined;
 		$scope.type = undefined;
+
+		$scope.run = {
+			duration: 1
+		};
+
 		$scope.errors = {
 			password: 'If left blank, anyone with the URL can view this run.',
 			unknown: 'An unknown error occured. Please try again another time.',
 		};
-		$scope.run_submit = function(){
+
+		$scope.active = function(current){
+			if(current == $scope.run.duration) {
+				return 'active';
+			};
+		};
+
+		$scope.duration = function(duration){
+			$scope.run.duration = duration;
+		};
+
+		$scope.submit = function(){
 			var run_new = $http({
 				data: $httpParamSerializer($scope.run),
 				headers: {

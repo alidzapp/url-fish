@@ -2,7 +2,7 @@
 	echo json_encode(
 		array(
 			'type' => 'error',
-			'content' => '...'
+			'content' => $_POST
 		)
 	);
 ?>
