@@ -7,6 +7,10 @@ Options -Indexes
 ErrorDocument 403 /templates/notfound.php
 ErrorDocument 404 /templates/notfound.php
 
+# Redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
 # Redirect requests with one or more trailing slashes to appropriate url
 # Make sure project folders avoid this rule
 RewriteRule ^assets|requests|templates - [L]
