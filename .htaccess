@@ -1,0 +1,16 @@
+# Turn on rewrite engine
+RewriteEngine On
+
+# Disable viewing of folder structure
+# Redirect to error handling template
+Options -Indexes
+ErrorDocument 403 /templates/notfound.php
+
+# Make sure every requests is handled by main template
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [L]
+
+# Redirect requests with one or more trailing slashes to appropriate url
+# Make sure project folders avoid this rule
+RewriteRule ^assets|templates - [L]
+RewriteRule ^([\w-]+)\/{1}(.*)$ /$1 [L,R=301]
