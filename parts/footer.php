@@ -1,4 +1,4 @@
-		<script src="assets/js/all.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="assets/js/all.min.js"></script>
 
 	</body>
 
