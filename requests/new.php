@@ -1,1 +1,8 @@
-<?php var_dump($_POST); ?>
+<?php
+	echo json_encode(
+		array(
+			'type' => 'error',
+			'content' => '...'
+		)
+	);
+?>

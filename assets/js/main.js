@@ -10,7 +10,13 @@
 
 	passrun.controller('HomeCtrl', ['$scope', '$http', '$httpParamSerializer', function($scope, $http, $httpParamSerializer) {
 		$scope.run = {};
-		$scope.submit = function(){
+		$scope.data = undefined;
+		$scope.type = undefined;
+		$scope.errors = {
+			password: 'If left blank, anyone with the URL can view this run.',
+			unknown: 'An unknown error occured. Please try again another time.',
+		};
+		$scope.run_submit = function(){
 			var run_new = $http({
 				data: $httpParamSerializer($scope.run),
 				headers: {
@@ -21,7 +27,13 @@
 			});
 
 		  	run_new.then(function(response) {
-		    	console.log(response.data);
+		  		if(response.data.type) {
+		  			$scope.type = response.data.type;
+			    	$scope.data = response.data.content;
+			    } else {
+			    	$scope.type = 'error';
+			    	$scope.data = $scope.errors.unknown;
+			    }
 		    });
 		};
 	}]);
