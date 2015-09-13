@@ -5,7 +5,8 @@ var gulp = require('gulp'),
 	minify = require('gulp-minify-css'),
 	rename = require('gulp-rename'),
 	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify');
+	uglify = require('gulp-uglify'),
+	livereload = require('gulp-livereload');
 
 gulp.task('css', function() {
 	gulp.src('assets/css/main.scss')
@@ -13,6 +14,7 @@ gulp.task('css', function() {
 	.pipe(rename('all.min.css'))
 	.pipe(minify())
 	.pipe(gulp.dest('assets/css'))
+	.pipe(livereload())
 });
 
 gulp.task('js', function() {
@@ -24,6 +26,7 @@ gulp.task('js', function() {
 	.pipe(concat('all.min.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('assets/js'))
+	.pipe(livereload())
 });
 
 gulp.task('watch', function() {
