@@ -1,14 +1,21 @@
-(function() {
+!function() {
 
 	var passrun = angular.module('passrun', [
 		'ngRoute'
 	]);
 
-	passrun.controller('PassrunCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
+	passrun.controller('MainCtrl', ['$scope', function($scope) {
 		$scope.title = 'Pass.run';
+	}]);
 
+	passrun.controller('HomeCtrl', ['$scope', '$http', '$httpParamSerializer', function($scope, $http, $httpParamSerializer) {
+		$scope.run = {};
 		$scope.submit = function(){
 			var run_new = $http({
+				data: $httpParamSerializer($scope.run),
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
 				method: 'POST',
 				url: '/requests/new.php'
 			});
@@ -32,6 +39,7 @@
 		$locationProvider.html5Mode(true);
 
 		$routeProvider.when('/', {
+			controller: 'HomeCtrl',
 			templateUrl: 'templates/home.php'
 		});
 
@@ -48,4 +56,4 @@
 		});
 	}]);
 
-})();
+}();

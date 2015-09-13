@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" ng-app="passrun" ng-controller="PassrunCtrl">
+<html lang="en" ng-app="passrun" ng-controller="MainCtrl">
 
 	<head>
 		<meta charset="utf-8">
