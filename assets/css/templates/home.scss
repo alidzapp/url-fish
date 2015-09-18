@@ -1,0 +1,70 @@
+.field {
+	@include container;
+	margin-top: 30px;
+	position: relative;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.options {
+	button {
+		background: $red;
+		border-bottom: 3px solid $red-border;
+		margin-left: 30px;
+		width: 80px;
+
+		&:hover,
+		&:focus {
+			background: mix($white, $red, 5%);
+			border-bottom: 3px solid mix($white, $red-border, 5%);
+		}
+
+		&:active,
+		&.active {
+			background: $red-dark;
+			border-bottom: 0;
+			border-top: 3px solid $red-border-dark;
+		}
+
+		&.active:hover,
+		&.active:focus {
+			background: mix($white, $red-dark, 5%);
+			border-top: 3px solid mix($white, $red-border-dark, 5%);
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}	
+}
+
+.submit {
+	padding-left: 150px;
+
+	button {
+		width: 300px;
+	}
+}
+
+.notice {
+	@include vertical-center();
+	background: $red;
+	border-radius: $radius;
+	padding: 18px 25px;
+	right: 0;
+	width: 200px;
+	word-wrap: break-word;
+
+	&:before {
+		@include vertical-center();
+		border-color: transparent $red transparent transparent;
+		border-style: solid;
+		border-width: 10px 10px 10px 0;
+		content: '';
+		height: 0;
+		left: -10px;
+		width: 0;
+	}
+}

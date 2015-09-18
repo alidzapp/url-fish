@@ -1,0 +1,78 @@
+label {
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: 700;
+	float: left;
+	margin-right: 30px;
+	padding-top: 17px;
+	text-align: right;
+	width: 120px;
+}
+
+input,
+textarea,
+button {
+	border: 0;
+	border-radius: $radius;
+	float: left;
+	font-family: inherit;
+	font-weight: inherit;
+	outline: 0;
+}
+
+input,
+textarea {
+	color: $gray-border;
+	font-size: inherit;
+	width: 300px;
+}
+
+input {
+	height: 60px;
+	padding: 0 25px;
+}
+
+textarea {
+	height: 150px;
+	line-height: inherit;
+	padding: 18px 25px;
+	resize: vertical;
+}
+
+button {
+	-webkit-appearance: none;
+	background: $gray;
+	border-bottom: 3px solid $gray-border;
+	color: inherit;
+	cursor: pointer;
+	font-size: 20px;
+	height: 60px;
+	padding: 0 25px;
+
+	&:hover,
+	&:focus {
+		background: mix(white, $gray, 10%);
+		border-bottom: 3px solid mix(white, $gray-border, 10%);
+	}
+
+	&:active {
+		border-bottom: 0;
+		border-top: 3px solid $gray-border;
+	}
+}
+
+::-webkit-input-placeholder {
+   color: $gray-light;
+}
+
+:-moz-placeholder {
+   color: $gray-light;
+}
+
+::-moz-placeholder {
+   color: $gray-light;
+}
+
+:-ms-input-placeholder {  
+   color: $gray-light;
+}

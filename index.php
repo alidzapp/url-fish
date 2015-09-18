@@ -1,7 +1,7 @@
-<?php include_once('parts/head.php'); ?>
+<?php require_once('parts/head.php'); ?>
 
-<?php include_once('parts/navigation.php'); ?>
+<?php require_once('parts/navigation.php'); ?>
 
-<?php include_once('app.php'); ?>
+<?php require_once('parts/view.php'); ?>
 
-<?php include_once('parts/footer.php'); ?>
+<?php require_once('parts/footer.php'); ?>

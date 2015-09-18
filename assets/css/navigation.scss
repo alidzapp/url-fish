@@ -1,0 +1,28 @@
+.navigation {
+	@include container();
+
+	a {
+		padding: 10px;
+	}
+
+	.left {
+		float: left;
+
+		a:hover {
+			color: $white;
+		}
+	}
+
+	.right {
+		float: right;
+		list-style: none;
+
+		li {
+			float: left;
+		}
+
+		a {
+			margin-left: 20px;
+		}
+	}
+}

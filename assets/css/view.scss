@@ -1,0 +1,9 @@
+.content {
+	@include container();
+	margin-top: 120px;
+
+	.view {
+		margin: 0 auto;
+		width: 700px;
+	}
+}

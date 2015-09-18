@@ -42,6 +42,9 @@
 			});
 
 		  	run_new.then(function(response) {
+		  		//temp
+		  		console.log(response.data);
+		  		
 		  		if(response.data.type) {
 		  			$scope.type = response.data.type;
 			    	$scope.data = response.data.content;
