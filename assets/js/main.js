@@ -1,24 +1,24 @@
 !function() {
 
-	var passrun = angular.module('passrun', [
+	var urlfish = angular.module('urlfish', [
 		'ngRoute'
 	]);
 
-	passrun.controller('MainCtrl', ['$scope', function($scope) {
-		$scope.title = 'Pass.run';
+	urlfish.controller('MainCtrl', ['$scope', function($scope) {
+		$scope.title = 'URL fish';
 	}]);
 
-	passrun.controller('HomeCtrl', ['$scope', '$http', '$httpParamSerializer', function($scope, $http, $httpParamSerializer) {
-		$scope.data = undefined;
+	urlfish.controller('HomeCtrl', ['$scope', '$http', '$httpParamSerializer', function($scope, $http, $httpParamSerializer) {
 		$scope.type = undefined;
+		$scope.message = undefined;
 
 		$scope.run = {
 			duration: 1
 		};
 
 		$scope.errors = {
-			password: 'If left blank, anyone with the URL can view this run.',
-			unknown: 'An unknown error occured. Please try again another time.',
+			password: 'If left blank, anyone with the URL can view your fish.',
+			unknown: 'An unknown error occured. Please try again another time.'
 		};
 
 		$scope.active = function(current){
@@ -47,16 +47,16 @@
 		  		
 		  		if(response.data.type) {
 		  			$scope.type = response.data.type;
-			    	$scope.data = response.data.content;
+			    	$scope.message = response.data.message;
 			    } else {
 			    	$scope.type = 'error';
-			    	$scope.data = $scope.errors.unknown;
+			    	$scope.message = $scope.errors.unknown;
 			    }
 		    });
 		};
 	}]);
 
-	passrun.directive('focus', function() {
+	urlfish.directive('focus', function() {
         return {
             restrict: 'A',
             link: function(scope, element) {
@@ -65,7 +65,7 @@
         };
     });
 
-	passrun.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+	urlfish.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 		$locationProvider.html5Mode(true);
 
 		$routeProvider.when('/', {

@@ -2,21 +2,19 @@
 
 	<div class="field">
 
-		<div class="label">
-			<label for="url">pass<span>.</span>run<span>/</span></label>
-		</div>
+		<label for="url">url<span>.</span>fish<span>/</span></label>
 
 		<div class="input">
 			<input type="text" ng-model="run.url" placeholder="your-url" name="url" id="url" required focus>
 		</div>
 
+		<div class="notice" ng-show="false">{{}}</div>
+
 	</div>
 
 	<div class="field options">
 		
-		<div class="label">
-			<label for="8h">Duration</label>
-		</div>
+		<label for="8h">Duration</label>
 
 		<div class="input">
 			<button ng-class="active(1)" ng-click="duration(1)" id="1h">1h</button>
@@ -24,13 +22,13 @@
 			<button ng-class="active(24)" ng-click="duration(24)" id="24h">24h</button>
 		</div>
 
+		<div class="notice" ng-show="false">{{}}</div>
+
 	</div>
 
 	<div class="field">
 		
-		<div class="label">
-			<label for="password">Password</label>
-		</div>
+		<label for="password">Password</label>
 
 		<div class="input">
 			<input type="password" ng-model="run.password" placeholder="Choose password" name="password" id="password">
@@ -42,21 +40,19 @@
 
 	<div class="field">
 		
-		<div class="label">
-			<label for="content">Spill it</label>
-		</div>
+		<label for="content">Content</label>
 
 		<div class="input">
-			<textarea ng-model="run.content" placeholder="Here comes the content of this run" name="content" id="content" required></textarea>
+			<textarea ng-model="run.content" placeholder="Say something secret in 100 characters or less." name="content" id="content" required></textarea>
 		</div>
+
+		<div class="notice" ng-show="false">{{}}</div>
 
 	</div>
 
 	<div class="field submit">
 
-		<button type="submit" ng-click="submit()">Run it</button>
-
-		<div class="notice" ng-show="data" ng-class="type">{{data}}</div>
+		<button type="submit" ng-click="submit()">Fish</button>
 
 	</div>
 

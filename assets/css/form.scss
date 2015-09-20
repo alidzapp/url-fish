@@ -6,7 +6,16 @@ label {
 	margin-right: 30px;
 	padding-top: 17px;
 	text-align: right;
-	width: 120px;
+	width: 200px;
+
+	span {
+		display: inline-block;
+		margin: 0 2px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
 }
 
 input,

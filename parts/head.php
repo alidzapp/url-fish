@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" ng-app="passrun" ng-controller="MainCtrl">
+<html lang="en" ng-app="urlfish" ng-controller="MainCtrl">
 
 	<head>
 		<meta charset="utf-8">

@@ -8,8 +8,12 @@
 	.left {
 		float: left;
 
-		a:hover {
-			color: $white;
+		a {
+			text-transform: none;
+
+			&:hover {
+				color: $white;
+			}
 		}
 	}
 
