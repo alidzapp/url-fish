@@ -48,6 +48,10 @@
 	}
 }
 
+.success {
+	text-align: center;
+}
+
 .notice {
 	@include vertical-center();
 	background: $red;

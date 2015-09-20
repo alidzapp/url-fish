@@ -22,7 +22,7 @@
 			<button ng-class="active(24)" ng-click="duration(24)" id="24h">24h</button>
 		</div>
 
-		<div class="notice" ng-show="false">{{}}</div>
+		<div class="notice" ng-show="notice('duration')">{{message}}</div>
 
 	</div>
 
@@ -31,7 +31,7 @@
 		<label for="password">Password</label>
 
 		<div class="input">
-			<input type="password" ng-model="run.password" placeholder="Choose password" name="password" id="password">
+			<input type="password" ng-model="run.password" placeholder="Choose password (optional)" name="password" id="password">
 		</div>
 
 		<div class="notice" ng-show="(form.password.$touched || form.content.$dirty) && form.password.$pristine">{{errors.password}}</div>
@@ -46,13 +46,21 @@
 			<textarea ng-model="run.content" placeholder="Say something secret in 100 characters or less." name="content" id="content" required></textarea>
 		</div>
 
-		<div class="notice" ng-show="false">{{}}</div>
+		<div class="notice" ng-show="notice('content')">{{message}}</div>
 
 	</div>
 
 	<div class="field submit">
 
 		<button type="submit" ng-click="submit()">Fish</button>
+
+		<div class="notice" ng-show="notice('submit')">{{message}}</div>
+
+	</div>
+
+	<div class="field success">
+
+		<h2 ng-show="type == 'success'">{{message}}</h2>
 
 	</div>
 

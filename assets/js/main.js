@@ -18,7 +18,7 @@
 		};
 
 		$scope.errors = {
-			password: 'If left blank, anyone with the URL can view your fish.',
+			password: 'If left blank, anyone who visits the URL can view your message.',
 			unknown: 'An unknown error occured. Please try again another time.'
 		};
 
