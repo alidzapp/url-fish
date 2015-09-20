@@ -10,6 +10,7 @@
 
 	urlfish.controller('HomeCtrl', ['$scope', '$http', '$httpParamSerializer', function($scope, $http, $httpParamSerializer) {
 		$scope.type = undefined;
+		$scope.field = undefined;
 		$scope.message = undefined;
 
 		$scope.run = {
@@ -24,6 +25,12 @@
 		$scope.active = function(current){
 			if(current == $scope.run.duration) {
 				return 'active';
+			};
+		};
+
+		$scope.notice = function(field){
+			if(field == $scope.field) {
+				return true;
 			};
 		};
 
@@ -47,6 +54,7 @@
 		  		
 		  		if(response.data.type) {
 		  			$scope.type = response.data.type;
+		  			$scope.field = response.data.field;
 			    	$scope.message = response.data.message;
 			    } else {
 			    	$scope.type = 'error';

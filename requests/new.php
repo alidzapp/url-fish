@@ -2,10 +2,10 @@
 	require_once('../config.php');
 	require('../assets/php/validator.php');
 
-	$url = isset($_POST['url']) ? $_POST['url'] : NULL;
-	$duration = isset($_POST['duration']) ? $_POST['duration'] : NULL;
-	$password = isset($_POST['password']) ? $_POST['password'] : NULL;
-	$content = isset($_POST['content']) ? $_POST['content'] : NULL;
+	$url = isset($_POST['url']) ? $_POST['url'] : false;
+	$duration = isset($_POST['duration']) ? $_POST['duration'] : false;
+	$password = isset($_POST['password']) ? $_POST['password'] : false;
+	$content = isset($_POST['content']) ? $_POST['content'] : false;
 
 	$type = 'error';
 	$field = 'all';

@@ -8,7 +8,7 @@
 			<input type="text" ng-model="run.url" placeholder="your-url" name="url" id="url" required focus>
 		</div>
 
-		<div class="notice" ng-show="false">{{}}</div>
+		<div class="notice" ng-show="notice('url')">{{message}}</div>
 
 	</div>
 

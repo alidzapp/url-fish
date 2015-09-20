@@ -4,9 +4,10 @@
 		public function validateURL($url) {
 			$valid = false;
 			$error = 'unknown';
+			$url = strtolower($url);
 
-			if(NULL === $url) {
-				$error = '...';
+			if(! preg_match('/^[a-z0-9-]{1,50}$/', $url)) {
+				$error = 'Please use only alphanumeric characters and hyphens in your url.';
 			} else {
 				$valid = true;
 			}
@@ -21,7 +22,7 @@
 			$valid = false;
 			$error = 'unknown';
 
-			if(NULL === $duration) {
+			if('' === $duration) {
 				$error = '...';
 			} else {
 				$valid = true;
@@ -37,7 +38,7 @@
 			$valid = false;
 			$error = 'unknown';
 
-			if(NULL === $password) {
+			if('' === $password) {
 				$error = '...';
 			} else {
 				$valid = true;
@@ -53,7 +54,7 @@
 			$valid = false;
 			$error = 'unknown';
 
-			if(NULL === $content) {
+			if('' === $content) {
 				$error = '...';
 			} else {
 				$valid = true;
