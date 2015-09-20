@@ -71,4 +71,12 @@
 		left: -10px;
 		width: 0;
 	}
+
+	&.yellow {
+		background: $yellow;
+
+		&:before {
+			border-right-color: $yellow;
+		}
+	}
 }

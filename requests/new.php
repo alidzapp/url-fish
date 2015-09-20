@@ -52,8 +52,7 @@
 
 	if($content_valid && $duration_valid && $url_valid) {
 		$type = 'success';
-		$field = 'none';
-		$message = 'Your URL is saved.';
+		$message = 'Your URL is saved, and will be thrown back in the pond after visiting.';
 	}
 
 	echo json_encode(

@@ -34,7 +34,7 @@
 			<input type="password" ng-model="run.password" placeholder="Choose password (optional)" name="password" id="password">
 		</div>
 
-		<div class="notice" ng-show="(form.password.$touched || form.content.$dirty) && form.password.$pristine">{{errors.password}}</div>
+		<div class="notice yellow" ng-show="(form.password.$touched || form.content.$dirty) && form.password.$pristine && type != 'success'">{{errors.password}}</div>
 
 	</div>
 
@@ -54,13 +54,7 @@
 
 		<button type="submit" ng-click="submit()">Fish</button>
 
-		<div class="notice" ng-show="notice('submit')">{{message}}</div>
-
-	</div>
-
-	<div class="field success">
-
-		<h2 ng-show="type == 'success'">{{message}}</h2>
+		<div class="notice yellow" ng-show="notice('submit')">{{message}}</div>
 
 	</div>
 
