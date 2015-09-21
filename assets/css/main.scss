@@ -39,11 +39,19 @@ a {
 	text-transform: lowercase;
 }
 
-p {
+p,
+ul {
 	margin: 0;
 }
 
 ul {
-	margin: 0;
 	padding: 0;
+}
+
+h1 {
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 45px;
+	margin: 0 0 10px 0;
+	text-align: center;
 }
