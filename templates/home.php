@@ -38,6 +38,8 @@
 
 			<div class="notice yellow" ng-show="(form.password.$touched || form.content.$dirty) && form.password.$pristine && type != 'success'">{{errors.password}}</div>
 
+			<div class="notice" ng-show="notice('password')">{{message}}</div>
+
 		</div>
 
 		<div class="field">

@@ -1,9 +1,10 @@
 <?php
 	require_once('../config.php');
-	require('../assets/php/validator.php');
+	require_once('../assets/php/validator.php');
+	require_once('../assets/php/database.php');
 
 	$url = isset($_POST['url']) ? strtolower($_POST['url']) : false;
-	$duration = isset($_POST['duration']) ? $_POST['duration'] : false;
+	$duration = isset($_POST['duration']) ? intval($_POST['duration']) : false;
 	$password = isset($_POST['password']) ? $_POST['password'] : false;
 	$content = isset($_POST['content']) ? $_POST['content'] : false;
 
@@ -12,45 +13,16 @@
 	$message = 'All fields seem to be empty.';
 
 	$content_valid = false;
+	$password_valid = false;
 	$duration_valid = false;
 	$url_valid = false;
 
-	$validator = new Validator();
+	require_once('../parts/validation.php');
 
-	/**
-	 * Validate content
-	 */
-	$content_validated = $validator->validateContent($content);
-	$content_valid = $content_validated['valid'];
+	if ($url_valid && $duration_valid && $password_valid && $content_valid) {
+		$database = new Database();
+		$database->insert($connection, $url, $duration, $password, $content);
 
-	if(! $content_valid) {
-		$field = 'content';
-		$message = $content_validated['message'];
-	}
-
-	/**
-	 * Validate duration
-	 */
-	$duration_validated = $validator->validateDuration($duration);
-	$duration_valid = $duration_validated['valid'];
-
-	if(! $duration_valid) {
-		$field = 'duration';
-		$message = $duration_validated['message'];
-	}
-
-	/**
-	 * Validate URL
-	 */
-	$url_validated = $validator->validateURL($url);
-	$url_valid = $url_validated['valid'];
-
-	if(! $url_valid) {
-		$field = 'url';
-		$message = $url_validated['message'];
-	}
-
-	if($content_valid && $duration_valid && $url_valid) {
 		$type = 'success';
 		$message = 'Your URL is saved, and will be thrown back in the pond after visiting.';
 	}

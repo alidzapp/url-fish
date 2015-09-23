@@ -58,6 +58,7 @@
 			    	$scope.message = response.data.message;
 			    } else {
 			    	$scope.type = 'error';
+			    	$scope.field = 'submit';
 			    	$scope.message = $scope.errors.unknown;
 			    }
 		    });
@@ -90,7 +91,7 @@
 		});
 
 		$routeProvider.otherwise({
-			templateUrl: 'templates/other.php'
+			templateUrl: 'templates/url.php'
 		});
 	}]);
 

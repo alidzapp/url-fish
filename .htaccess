@@ -13,8 +13,8 @@ RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
 # Redirect requests with one or more trailing slashes to appropriate url
 # Make sure project folders avoid this rule
-RewriteRule ^assets|requests|templates - [L]
-RewriteRule ^([\w-]+)\/{1}(.*)$ /$1 [L,R=301]
+RewriteRule ^assets|parts|requests|templates - [L]
+RewriteRule ^([\w-]+)\/{1}(.*)$ /$1 [L,R=302]
 
 # Make sure every requests is handled by main template
 RewriteCond %{REQUEST_FILENAME} !-f
