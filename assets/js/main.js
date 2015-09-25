@@ -65,6 +65,44 @@
 		};
 	}]);
 
+	urlfish.controller('URLCtrl', ['$scope', '$http', '$httpParamSerializer', function($scope, $http, $httpParamSerializer) {
+		$scope.type = undefined;
+		$scope.field = undefined;
+		$scope.message = undefined;
+
+		$scope.notice = function(field){
+			if(field == $scope.field) {
+				return true;
+			};
+		};
+
+		$scope.submit = function(){
+			var run_new = $http({
+				data: $httpParamSerializer($scope.run),
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				method: 'POST',
+				url: '/requests/auth.php'
+			});
+
+		  	run_new.then(function(response) {
+		  		//temp
+		  		console.log(response.data);
+		  		
+		  		if(response.data.type) {
+		  			$scope.type = response.data.type;
+		  			$scope.field = response.data.field;
+			    	$scope.message = response.data.message;
+			    } else {
+			    	$scope.type = 'error';
+			    	$scope.field = 'submit';
+			    	$scope.message = $scope.errors.unknown;
+			    }
+		    });
+		};
+	}]);
+
 	urlfish.directive('focus', function() {
         return {
             restrict: 'A',
@@ -91,6 +129,7 @@
 		});
 
 		$routeProvider.otherwise({
+			controller: 'URLCtrl',
 			templateUrl: 'templates/url.php'
 		});
 	}]);
