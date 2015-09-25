@@ -10,10 +10,11 @@
 			}
 		}
 
-		public function validateURL($url)
-		{
+		public function validateURL($connection, $url)
+		{	
 			$valid = false;
 			$error = 'unknown';
+			$database = new Database;
 
 			if (! $url) {
 				$error = 'Your URL is empty.';
@@ -21,6 +22,8 @@
 				$error = 'Please use only alphanumeric characters and hyphens in your url.';
 			} else if (! preg_match('/^.{1,50}$/', $url)) {
 				$error = 'Your URL can not be longer than 50 characters.';
+			} else if ($database->exists($connection, $url)) {
+				$error = 'This URL already exists.';
 			} else {
 				$valid = true;
 			}
