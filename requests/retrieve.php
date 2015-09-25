@@ -5,17 +5,15 @@
 
 	$url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : false;
 
-	if($url) {
-		$url = preg_replace('/^https?:\/\/(www\.)?url\.fish\/(.+)$/', '$2', $url);
-	}
-
 	$validator = new Validator;
+	$url = $validator->validateRawURL($url);
 
 	$url_validated = $validator->validateURL($url);
 	$url_valid = $url_validated['valid'];
 
 	if ($url_valid) {
-		//retrieve
+		//temp
+		echo $url;
 	} else {
 		echo $url_validated['message'];
 	}

@@ -1,6 +1,15 @@
 <?php
 	class Validator
 	{
+		public function validateRawURL($url)
+		{
+			if ($url) {
+				return preg_replace('/^https?:\/\/(www\.)?url\.fish\/(.+)$/', '$2', $url);
+			} else {
+				return false;
+			}
+		}
+
 		public function validateURL($url)
 		{
 			$valid = false;
