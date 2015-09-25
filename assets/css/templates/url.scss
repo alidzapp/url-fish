@@ -5,11 +5,17 @@
 .url span {
 	display: inline-block;
 	margin: 0 2px;
+
+	&:last-child {
+		font-weight: 700;
+		margin: 0;
+	}
 }
 
 .information {
 	background: $yellow;
 	border-radius: $radius;
+	font-weight: 700;
 	line-height: 25px;
 	margin: 0 auto;
 	padding: 18px 25px;
@@ -19,5 +25,10 @@
 
 	&.error {
 		background: $red;
+	}
+
+	&.secret {
+		background: #fff;
+		color: $gray;
 	}
 }

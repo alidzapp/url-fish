@@ -8,7 +8,7 @@
 	$validator = new Validator;
 	$url = $validator->validateRawURL($url);
 
-	$url_validated = $validator->validateURL($connection, $url);
+	$url_validated = $validator->validateURL($url);
 	$url_valid = $url_validated['valid'];
 
 	if ($url_valid) {

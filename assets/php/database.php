@@ -13,7 +13,7 @@
 
 		public function exists($connection, $url)
 		{	
-			$exists = $connection->prepare("SELECT url FROM Fish WHERE url = :url");
+			$exists = $connection->prepare("SELECT url FROM Fish WHERE url = :url LIMIT 1");
 			$exists->bindParam(':url', $url);
 			$exists->execute();
 
@@ -22,7 +22,7 @@
 
 		public function isProtected($connection, $url)
 		{	
-			$isprotected = $connection->prepare("SELECT password FROM Fish WHERE url = :url");
+			$isprotected = $connection->prepare("SELECT password FROM Fish WHERE url = :url LIMIT 1");
 			$isprotected->bindParam(':url', $url);
 			$isprotected->execute();
 
@@ -31,7 +31,7 @@
 
 		public function getContent($connection, $url)
 		{	
-			$getcontent = $connection->prepare("SELECT content FROM Fish WHERE url = :url");
+			$getcontent = $connection->prepare("SELECT content FROM Fish WHERE url = :url LIMIT 1");
 			$getcontent->bindParam(':url', $url);
 			$getcontent->execute();
 

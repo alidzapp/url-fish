@@ -37,7 +37,7 @@
 	/**
 	 * Validate URL
 	 */
-	$url_validated = $validator->validateURL($connection, $url);
+	$url_validated = $validator->validateURL($url, true, $connection);
 	$url_valid = $url_validated['valid'];
 
 	if (! $url_valid) {

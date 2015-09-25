@@ -30,8 +30,6 @@
 	echo json_encode(
 		array(
 			'type' => $type,
-			//temp
-			'debug' => $_POST,
 			'field' => $field,
 			'message' => $message
 		)

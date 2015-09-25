@@ -1,4 +1,4 @@
-<h2>url<span>.</span>fish<span>/</span><?php echo $url; ?></h2>
+<h2>url<span>.</span>fish<span>/</span><span><?php echo $url; ?></span></h2>
 
 <br>
 
@@ -8,10 +8,9 @@
 	if($database->exists($connection, $url)) {
 
 		if (! $database->isProtected($connection, $url)) {
-			echo '<div class="information">' . $database->getContent($connection, $url) . '</div>';
+			echo '<div class="information secret">' . $database->getContent($connection, $url) . '</div>';
 		} else {
-			//get password input part
-			echo 'fill in password';
+			require_once('../parts/password.php');
 		}
 
 	} else {
