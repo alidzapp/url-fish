@@ -7,6 +7,7 @@
 @import 'form';
 
 @import 'templates/home';
+@import 'templates/url';
 
 * {
 	box-sizing: border-box;
@@ -48,10 +49,19 @@ ul {
 	padding: 0;
 }
 
+h1,
+h2 {
+	margin: 0 0 10px 0;
+}
+
 h1 {
 	font-size: 30px;
 	font-weight: 700;
-	line-height: 45px;
-	margin: 0 0 10px 0;
+	line-height: 1.5;
+	text-align: center;
+}
+
+h2 {
+	font-size: 20px;
 	text-align: center;
 }

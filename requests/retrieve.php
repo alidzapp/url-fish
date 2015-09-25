@@ -12,9 +12,8 @@
 	$url_valid = $url_validated['valid'];
 
 	if ($url_valid) {
-		//temp
-		echo $url;
+		require_once('../parts/retrieve-url.php');
 	} else {
-		echo $url_validated['message'];
+		echo '<div class="information error">' . $url_validated['message'] . '</div>';
 	}
 ?>

@@ -15,7 +15,6 @@
 			$valid = false;
 			$error = 'unknown';
 
-			//add db check if already exists
 			if (! $url) {
 				$error = 'Your URL is empty.';
 			} else if (! preg_match('/^[a-z0-9-]*$/', $url)) {

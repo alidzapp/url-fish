@@ -1,0 +1,19 @@
+.url span {
+	display: inline-block;
+	margin: 0 2px;
+}
+
+.information {
+	background: $yellow;
+	border-radius: $radius;
+	line-height: 25px;
+	margin: 0 auto;
+	padding: 18px 25px;
+	right: 0;
+	width: 400px;
+	word-wrap: break-word;
+
+	&.error {
+		background: $red;
+	}
+}
