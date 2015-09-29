@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="assets/css/all.min.css">
 		<base href="/">
-		<title ng-bind="title"></title>
+		<title>URL.fish</title>
 	</head>
 
 	<body>

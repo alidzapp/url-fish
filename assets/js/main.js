@@ -4,86 +4,40 @@
 		'ngRoute'
 	]);
 
-	urlfish.controller('MainCtrl', ['$scope', function($scope) {
-		$scope.title = 'URL fish';
-	}]);
-
-	urlfish.controller('HomeCtrl', ['$scope', '$http', '$httpParamSerializer', function($scope, $http, $httpParamSerializer) {
-		$scope.type = undefined;
-		$scope.field = undefined;
-		$scope.message = undefined;
+	urlfish.controller('MainCtrl', ['$scope', '$http', '$httpParamSerializer', function($scope, $http, $httpParamSerializer) {
+		$scope.notice = function(field) {
+			if(field == $scope.field) {
+				return true;
+			};
+		};
 
 		$scope.run = {
 			duration: 1
 		};
-
+ 
 		$scope.errors = {
 			password: 'If left blank, anyone who visits the URL can view your message.',
 			unknown: 'An unknown error occured. Please try again another time.'
 		};
 
-		$scope.active = function(current){
+		$scope.active = function(current) {
 			if(current == $scope.run.duration) {
 				return 'active';
 			};
 		};
 
-		$scope.notice = function(field){
-			if(field == $scope.field) {
-				return true;
-			};
-		};
-
-		$scope.duration = function(duration){
+		$scope.duration = function(duration) {
 			$scope.run.duration = duration;
 		};
 
-		$scope.submit = function(){
+		$scope.submit = function(type) {
 			var run_new = $http({
 				data: $httpParamSerializer($scope.run),
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded'
 				},
 				method: 'POST',
-				url: '/requests/new.php'
-			});
-
-		  	run_new.then(function(response) {
-		  		//temp
-		  		console.log(response.data);
-		  		
-		  		if(response.data.type) {
-		  			$scope.type = response.data.type;
-		  			$scope.field = response.data.field;
-			    	$scope.message = response.data.message;
-			    } else {
-			    	$scope.type = 'error';
-			    	$scope.field = 'submit';
-			    	$scope.message = $scope.errors.unknown;
-			    }
-		    });
-		};
-	}]);
-
-	urlfish.controller('URLCtrl', ['$scope', '$http', '$httpParamSerializer', function($scope, $http, $httpParamSerializer) {
-		$scope.type = undefined;
-		$scope.field = undefined;
-		$scope.message = undefined;
-
-		$scope.notice = function(field){
-			if(field == $scope.field) {
-				return true;
-			};
-		};
-
-		$scope.submit = function(){
-			var run_new = $http({
-				data: $httpParamSerializer($scope.run),
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded'
-				},
-				method: 'POST',
-				url: '/requests/auth.php'
+				url: '/requests/' + type + '.php'
 			});
 
 		  	run_new.then(function(response) {
@@ -116,7 +70,6 @@
 		$locationProvider.html5Mode(true);
 
 		$routeProvider.when('/', {
-			controller: 'HomeCtrl',
 			templateUrl: 'templates/home.php'
 		});
 
@@ -129,7 +82,6 @@
 		});
 
 		$routeProvider.otherwise({
-			controller: 'URLCtrl',
 			templateUrl: 'templates/url.php'
 		});
 	}]);

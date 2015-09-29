@@ -56,7 +56,7 @@
 
 		<div class="field submit">
 
-			<button type="submit" ng-click="submit()">Fish</button>
+			<button type="submit" ng-click="submit('new')">Fish</button>
 
 			<div class="notice yellow" ng-show="notice('submit')">{{message}}</div>
 

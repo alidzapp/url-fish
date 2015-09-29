@@ -14,7 +14,7 @@
 
 	<div class="field submit">
 
-		<button type="submit" ng-click="submit()">View</button>
+		<button type="submit" ng-click="submit('auth')">View</button>
 
 		<div class="notice yellow" ng-show="notice('submit')">{{message}}</div>
 

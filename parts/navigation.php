@@ -1,7 +1,7 @@
 <div class="navigation">
 
 	<div class="left">
-		<a ng-bind="title" href="/"></a>
+		<a href="/">URL.fish</a>
 	</div>
 
 	<ul class="right">
