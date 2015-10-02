@@ -15,11 +15,11 @@
 
 	require_once('../parts/validation/url.php');
 
-	if ($url_valid && $password_valid) {
-		// remove from db
-		
+	if ($url_valid && $password_valid) {		
 		$database = new Database();
 		$secret = nl2br($database->getContent($connection, $url));
+
+		$database->remove($connection, $url);
 
 		$type = 'success';
 		$message = $secret;

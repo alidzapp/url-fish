@@ -9,6 +9,8 @@
 
 		if (! $database->isProtected($connection, $url)) {
 			echo '<div class="information secret">' . nl2br($database->getContent($connection, $url)) . '</div>';
+
+			$database->remove($connection, $url);
 		} else {
 			require_once('../parts/password.php');
 		}

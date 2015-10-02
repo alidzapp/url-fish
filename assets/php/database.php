@@ -11,6 +11,13 @@
 			$insert->execute();
 		}
 
+		public function remove($connection, $url)
+		{
+			$remove = $connection->prepare("DELETE FROM Fish WHERE url = :url");
+			$remove->bindParam(':url', $url);
+			$remove->execute();
+		}
+
 		public function exists($connection, $url)
 		{	
 			$exists = $connection->prepare("SELECT url FROM Fish WHERE url = :url LIMIT 1");
