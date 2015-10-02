@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" ng-app="urlfish" ng-controller="MainCtrl">
+<html lang="en" ng-app="urlfish">
 
 	<head>
 		<meta charset="utf-8">
@@ -12,3 +12,4 @@
 	<body>
 
 		<div class="container">
+		

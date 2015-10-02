@@ -1,15 +1,6 @@
 <?php
 	class Validator
 	{
-		public function validateRawURL($url)
-		{
-			if ($url) {
-				return preg_replace('/^https?:\/\/(www\.)?url\.fish\/(.+)$/', '$2', $url);
-			} else {
-				return false;
-			}
-		}
-
 		public function validateURL($url, $check = false, $db = false)
 		{	
 			$valid = false;
@@ -26,11 +17,13 @@
 			} else if (! preg_match('/^.{1,50}$/', $url)) {
 				$error = 'Your URL can not be longer than 50 characters.';
 			} else if ($check) {
+
 				if ($database->exists($db, $url)) {
 					$error = 'This URL already exists.';
 				} else {
 					$valid = true;
 				}
+
 			} else {
 				$valid = true;
 			}
@@ -80,13 +73,46 @@
 			$valid = false;
 			$error = 'unknown';
 
+			if ($content) {
+				$content = str_replace(array("\r\n", "\r", "\n"), ' ', $content);
+			}
+
 			if (! $content) {
 				$error = 'Your content is empty.';
-			} else if (! preg_match('/^.{1,100}$/', $content)) {
-				$error = 'Your content can not be longer than 100 characters.';
+			} else if (! preg_match('/^.{1,200}$/', $content)) {
+				$error = 'Your content can not be longer than 200 characters.';
 			} else {
 				$valid = true;
 			}
+
+			return array(
+				'valid'		=> $valid,
+				'message'	=> $error
+			);
+		}
+
+		public function validateRawURL($url)
+		{
+			if ($url) {
+				return preg_replace('/^https?:\/\/(www\.)?url\.fish\/(.+)$/', '$2', $url);
+			} else {
+				return false;
+			}
+		}
+
+		public function validateAuth($password, $url, $db)
+		{	
+			$valid = false;
+			$error = 'bier';
+			
+			// $database = new Database();
+
+			// if (! $password) {
+			// 	$error = 'Your password is empty.';
+			// } else if($database->exists($db, $password, $url)) {
+			// } else {
+			// 	$valid = true;
+			// }
 
 			return array(
 				'valid'		=> $valid,

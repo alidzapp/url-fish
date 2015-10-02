@@ -37,5 +37,14 @@
 
 			return $getcontent->fetchColumn();
 		}
+
+		public function passwordCorrect($connection, $password)
+		{	
+			$getcontent = $connection->prepare("SELECT content FROM Fish WHERE url = :url LIMIT 1");
+			$getcontent->bindParam(':url', $url);
+			$getcontent->execute();
+
+			return $getcontent->fetchColumn();
+		}
 	}
 ?>

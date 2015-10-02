@@ -7,7 +7,7 @@
 			<label for="url">url<span>.</span>fish<span>/</span></label>
 
 			<div class="input">
-				<input type="text" ng-model="run.url" placeholder="your-url" name="url" id="url" required focus>
+				<input type="text" ng-model="new.url" placeholder="your-url" name="url" id="url" required focus>
 			</div>
 
 			<div class="notice" ng-show="notice('url')">{{message}}</div>
@@ -33,7 +33,7 @@
 			<label for="password">Password</label>
 
 			<div class="input">
-				<input type="password" ng-model="run.password" placeholder="Choose password (optional)" name="password" id="password">
+				<input type="password" ng-model="new.password" placeholder="Choose password (optional)" name="password" id="password">
 			</div>
 
 			<div class="notice yellow" ng-show="(form.password.$touched || form.content.$dirty) && form.password.$pristine && type != 'success'">{{errors.password}}</div>
@@ -47,7 +47,7 @@
 			<label for="content">Content</label>
 
 			<div class="input">
-				<textarea ng-model="run.content" placeholder="Say something secret in 100 characters or less." name="content" id="content" required></textarea>
+				<textarea ng-model="new.content" placeholder="Say something secret in 100 characters or less." name="content" id="content" required></textarea>
 			</div>
 
 			<div class="notice" ng-show="notice('content')">{{message}}</div>
@@ -56,7 +56,7 @@
 
 		<div class="field submit">
 
-			<button type="submit" ng-click="submit('new')">Fish</button>
+			<button type="submit" ng-click="submit()">Fish</button>
 
 			<div class="notice yellow" ng-show="notice('submit')">{{message}}</div>
 

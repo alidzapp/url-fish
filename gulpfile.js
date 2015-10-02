@@ -19,9 +19,10 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
 	gulp.src([
-		'assets/js/angular.js',
-		'assets/js/angular-route.js',
-		'assets/js/main.js'
+		'assets/js/main.js',
+		'assets/js/controllers/**.js',
+		'assets/js/modules.js',
+		'assets/js/routes.js'
 	])
 	.pipe(concat('all.min.js'))
 	.pipe(uglify())

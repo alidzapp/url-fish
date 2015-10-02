@@ -12,12 +12,12 @@
 	$field = 'submit';
 	$message = 'All fields seem to be empty.';
 
-	$content_valid = false;
-	$password_valid = false;
-	$duration_valid = false;
 	$url_valid = false;
+	$duration_valid = false;
+	$password_valid = false;
+	$content_valid = false;
 
-	require_once('../parts/validation.php');
+	require_once('../parts/validation/home.php');
 
 	if ($url_valid && $duration_valid && $password_valid && $content_valid) {
 		$database = new Database();
