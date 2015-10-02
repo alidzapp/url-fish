@@ -1,7 +1,5 @@
 <?php
 	require_once('../config.php');
-	require_once('../assets/php/validator.php');
-	require_once('../assets/php/database.php');
 
 	$url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : false;
 

@@ -1,3 +1,5 @@
+<?php require_once('parts/cron.php'); ?>
+
 <?php require_once('parts/head.php'); ?>
 
 <?php require_once('parts/navigation.php'); ?>

@@ -1,7 +1,5 @@
 <?php
 	require_once('../config.php');
-	require_once('../assets/php/validator.php');
-	require_once('../assets/php/database.php');
 
 	$url = isset($_POST['url']) ? strtolower((string) $_POST['url']) : false;
 	$duration = isset($_POST['duration']) ? (int) $_POST['duration'] : false;
