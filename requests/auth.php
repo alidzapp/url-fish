@@ -17,11 +17,12 @@
 
 	if ($url_valid && $password_valid) {
 		// remove from db
-		// $database = new Database();
-		// $database->insert($connection, $url, $duration, $password, $content);
+		
+		$database = new Database();
+		$secret = nl2br($database->getContent($connection, $url));
 
 		$type = 'success';
-		$message = 'Secret';
+		$message = $secret;
 	}
 
 	echo json_encode(

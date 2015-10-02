@@ -1,4 +1,4 @@
-<form name="form" novalidate ng-init="auth.url='<?php echo $url; ?>'">
+<form name="form" novalidate ng-init="auth.url='<?php echo $url; ?>'" ng-show="type != 'success'">
 
 	<div class="field">
 		
@@ -22,4 +22,6 @@
 
 	</div>
 
-<form>
+</form>
+
+<div class="information secret" ng-show="type == 'success'">{{message}}</div>

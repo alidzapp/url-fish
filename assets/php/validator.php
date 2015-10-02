@@ -103,16 +103,16 @@
 		public function validateAuth($password, $url, $db)
 		{	
 			$valid = false;
-			$error = 'bier';
-			
-			// $database = new Database();
+			$error = 'unknown';
+			$database = new Database();
 
-			// if (! $password) {
-			// 	$error = 'Your password is empty.';
-			// } else if($database->exists($db, $password, $url)) {
-			// } else {
-			// 	$valid = true;
-			// }
+			if (! $password) {
+				$error = 'Your password is empty.';
+			} else if($password !== $database->checkPassword($db, $url)) {
+				$error = 'This password doesn\'t seem to be correct.';
+			} else {
+				$valid = true;
+			}
 
 			return array(
 				'valid'		=> $valid,

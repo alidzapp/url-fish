@@ -38,13 +38,13 @@
 			return $getcontent->fetchColumn();
 		}
 
-		public function passwordCorrect($connection, $password)
+		public function checkPassword($connection, $url)
 		{	
-			$getcontent = $connection->prepare("SELECT content FROM Fish WHERE url = :url LIMIT 1");
-			$getcontent->bindParam(':url', $url);
-			$getcontent->execute();
+			$checkPassword = $connection->prepare("SELECT password FROM Fish WHERE url = :url LIMIT 1");
+			$checkPassword->bindParam(':url', $url);
+			$checkPassword->execute();
 
-			return $getcontent->fetchColumn();
+			return $checkPassword->fetchColumn();
 		}
 	}
 ?>

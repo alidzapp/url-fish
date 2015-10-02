@@ -62,6 +62,6 @@
 
 		</div>
 
-	<form>
+	</form>
 
 </div>
