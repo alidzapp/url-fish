@@ -1,5 +1,5 @@
 <?php
-	require_once('../config.php');
+	require_once('../../config.php');
 
 	$url = isset($_POST['url']) ? strtolower((string) $_POST['url']) : false;
 	$password = isset($_POST['password']) ? (string) $_POST['password'] : false;
@@ -11,7 +11,7 @@
 	$password_valid = false;
 	$url_valid = false;
 
-	require_once('../parts/validation/url.php');
+	require_once('../../parts/validation/url/auth.php');
 
 	if ($url_valid && $password_valid) {		
 		$database = new Database();

@@ -1,7 +1,7 @@
 <div class="navigation">
 
 	<div class="left">
-		<a href="/">URL.fish</a>
+		<a href="/">URL<span>.</span>fish</a>
 	</div>
 
 	<ul class="right">
