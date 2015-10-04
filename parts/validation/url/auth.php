@@ -2,7 +2,7 @@
 	$validator = new Validator();
 
 	/**
-	 * Validate URL
+	 * Validate URL - part 1
 	 */
 	$url_validated = $validator->validateURL($url);
 	$url_valid = $url_validated['valid'];
@@ -14,9 +14,21 @@
 	}
 
 	/**
+	 * Validate URL - part 2
+	 */
+	$url_validated = $validator->checkURL($url_hash, $connection, false, false, true);
+	$url_valid = $url_validated['valid'];
+
+	if (! $url_valid) {
+		$message = $url_validated['message'];
+
+		return;
+	}
+
+	/**
 	 * Validate password
 	 */
-	$password_validated = $validator->validateAuth($password, $url, $connection);
+	$password_validated = $validator->validateAuth($password, $url_hash, $connection);
 	$password_valid = $password_validated['valid'];
 
 	if (! $password_valid) {

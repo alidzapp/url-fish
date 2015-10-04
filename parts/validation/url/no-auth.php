@@ -16,7 +16,7 @@
 	/**
 	 * Validate URL - part 2
 	 */
-	$url_validated = $validator->URLChecks($url_hash, $connection, false, true, true);
+	$url_validated = $validator->checkURL($url_hash, $connection, false, true, true);
 	$url_valid = $url_validated['valid'];
 
 	if (! $url_valid) {

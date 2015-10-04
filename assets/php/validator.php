@@ -22,7 +22,7 @@
 			);
 		}
 
-		public function URLChecks($url, $db, $checkExists = false, $checkProtected = false, $checkRemoved = false)
+		public function checkURL($url, $db, $checkExists = false, $checkProtected = false, $checkRemoved = false)
 		{	
 			$valid = false;
 			$error = 'unknown';

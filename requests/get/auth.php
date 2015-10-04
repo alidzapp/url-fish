@@ -27,7 +27,6 @@
 
 	echo json_encode(
 		array(
-			$_POST,
 			'type' => $type,
 			'field' => $field,
 			'message' => $message
