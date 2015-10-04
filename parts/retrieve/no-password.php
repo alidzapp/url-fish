@@ -1,9 +1,3 @@
-<?php
-	// echo '<div class="information secret">' . nl2br($database->getContent($connection, $url)) . '</div>';
-
-	// $database->remove($connection, $url);
-?>
-
 <form name="form" novalidate ng-init="auth.url='<?php echo $url; ?>'" ng-show="type != 'success'">
 
 	<div class="field submit">

@@ -3,11 +3,9 @@
 <br>
 
 <?php
-	$database = new Database;
+	if($database->exists($connection, $url_hash)) {
 
-	if($database->exists($connection, $url)) {
-
-		if (! $database->isProtected($connection, $url)) {
+		if (! $database->isProtected($connection, $url_hash)) {
 			require_once('../parts/retrieve/no-password.php');
 		} else {
 			require_once('../parts/retrieve/password.php');

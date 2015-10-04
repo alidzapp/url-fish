@@ -3,6 +3,8 @@
 
 	$url = isset($_POST['url']) ? strtolower((string) $_POST['url']) : false;
 
+	$url_hash = hash('sha256', $url);
+
 	$type = 'error';
 	$field = 'submit';
 	$message = 'An unknown error occured. Please try again another time.';
@@ -11,19 +13,18 @@
 
 	require_once('../../parts/validation/url/no-auth.php');
 
-	// if ($url_valid) {
-	// 	$database = new Database();
-	// 	$secret = nl2br($database->getContent($connection, $url));
+	if ($url_valid) {
+		$database = new Database();
+		$secret = nl2br($database->getContent($connection, $url_hash));
 
-	// 	$database->remove($connection, $url);
+		$database->remove($connection, $url_hash);
 
-	// 	$type = 'success';
-	// 	$message = $secret;
-	// }
+		$type = 'success';
+		$message = $secret;
+	}
 
 	echo json_encode(
 		array(
-			$_POST,
 			'type' => $type,
 			'field' => $field,
 			'message' => $message

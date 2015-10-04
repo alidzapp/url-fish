@@ -1,14 +1,10 @@
 <?php
 	class Validator
 	{
-		public function validateURL($url, $check = false, $db = false)
+		public function validateURL($url)
 		{	
 			$valid = false;
 			$error = 'unknown';
-
-			if ($check) {
-				$database = new Database();
-			}
 
 			if (! $url) {
 				$error = 'Your URL is empty.';
@@ -16,16 +12,48 @@
 				$error = 'Please use only alphanumeric characters and hyphens in your url.';
 			} else if (! preg_match('/^.{1,50}$/', $url)) {
 				$error = 'Your URL can not be longer than 50 characters.';
-			} else if ($check) {
+			} else {
+				$valid = true;
+			}
 
+			return array(
+				'valid'		=> $valid,
+				'message'	=> $error
+			);
+		}
+
+		public function URLChecks($url, $db, $checkExists = false, $checkProtected = false, $checkRemoved = false)
+		{	
+			$valid = false;
+			$error = 'unknown';
+			$database = new Database();
+
+			if ($checkExists) {
 				if ($database->exists($db, $url)) {
 					$error = 'This URL already exists.';
 				} else {
 					$valid = true;
 				}
+			}
 
-			} else {
-				$valid = true;
+			if ($checkProtected) {
+				$valid = false;
+
+				if ($database->isProtected($db, $url)) {
+					$error = 'This URL is password protected.';
+				} else {
+					$valid = true;
+				}
+			}
+
+			if ($checkRemoved) {
+				$valid = false;
+
+				if (! $database->exists($db, $url)) {
+					$error = 'This URL doesn\'t exist anymore.';
+				} else {
+					$valid = true;
+				}
 			}
 
 			return array(

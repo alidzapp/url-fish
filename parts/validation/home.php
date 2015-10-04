@@ -2,9 +2,22 @@
 	$validator = new Validator();
 
 	/**
-	 * Validate URL
+	 * Validate URL - part 1
 	 */
-	$url_validated = $validator->validateURL($url, true, $connection);
+	$url_validated = $validator->validateURL($url);
+	$url_valid = $url_validated['valid'];
+
+	if (! $url_valid) {
+		$field = 'url';
+		$message = $url_validated['message'];
+
+		return;
+	}
+
+	/**
+	 * Validate URL - part 2
+	 */
+	$url_validated = $validator->URLChecks($url_hash, $connection, true);
 	$url_valid = $url_validated['valid'];
 
 	if (! $url_valid) {

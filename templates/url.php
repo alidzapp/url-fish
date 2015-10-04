@@ -5,16 +5,17 @@
 
 		$url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : false;
 
-		$validator = new Validator;
-		$url = $validator->validateRawURL($url);
+		if ($url) {
+			$validator = new Validator;
+			$database = new Database;
+			
+			$url = $validator->validateRawURL($url);
+			$url_hash = hash('sha256', $url);
 
-		$url_validated = $validator->validateURL($url);
-		$url_valid = $url_validated['valid'];
-
-		if ($url_valid) {
 			require_once('../parts/retrieve.php');
 		} else {
-			echo '<div class="information error">' . $url_validated['message'] . '</div>';
+			//temp
+			echo 'no referrer info';
 		}
 	?>
 

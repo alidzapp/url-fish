@@ -49,14 +49,14 @@
 
 		public function isProtected($connection, $url)
 		{	
-			$isprotected = $connection->prepare("
+			$isProtected = $connection->prepare("
 				SELECT password FROM Fish
 				WHERE url = :url LIMIT 1
 			");
-			$isprotected->bindParam(':url', $url);
-			$isprotected->execute();
+			$isProtected->bindParam(':url', $url);
+			$isProtected->execute();
 
-			return $isprotected->fetchColumn();
+			return $isProtected->fetchColumn();
 		}
 
 		public function getContent($connection, $url)
