@@ -24,4 +24,4 @@
 
 </form>
 
-<div class="information secret" ng-show="type == 'success'">{{message}}</div>
+<div class="information secret" ng-show="type == 'success'" ng-bind-html="message"></div>
