@@ -37,6 +37,9 @@
 			});
 
 		  	fishNew.then(function(response) {
+		  		//temp
+		  		console.log(response.data);
+		  		
 		  		if(response.data.type) {
 		  			$scope.type = response.data.type;
 		  			$scope.field = response.data.field;

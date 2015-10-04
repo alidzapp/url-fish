@@ -6,7 +6,7 @@
 	$password = isset($_POST['password']) ? (string) $_POST['password'] : false;
 	$content = isset($_POST['content']) ? (string) $_POST['content'] : false;
 
-	$url_hash = hash('sha256', $url);
+	$url_hash = hash('sha256', SALT . $url);
 
 	$type = 'error';
 	$field = 'submit';

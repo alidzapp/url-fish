@@ -10,7 +10,7 @@
 			$database = new Database;
 			
 			$url = $validator->validateRawURL($url);
-			$url_hash = hash('sha256', $url);
+			$url_hash = hash('sha256', SALT . $url);
 
 			require_once('../parts/retrieve.php');
 		} else {

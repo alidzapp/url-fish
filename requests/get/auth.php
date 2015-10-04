@@ -4,7 +4,7 @@
 	$url = isset($_POST['url']) ? strtolower((string) $_POST['url']) : false;
 	$password = isset($_POST['password']) ? (string) $_POST['password'] : false;
 
-	$url_hash = hash('sha256', $url);
+	$url_hash = hash('sha256', SALT . $url);
 
 	$type = 'error';
 	$field = 'password';

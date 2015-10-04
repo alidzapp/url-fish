@@ -3,6 +3,7 @@
 	define('DB_NAME', '');
 	define('DB_USER', '');
 	define('DB_PASSWORD', '');
+	define('SALT', '');
 
 	try {
 		$connection = new PDO('mysql:host=' . HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
@@ -17,4 +18,7 @@
 
 		die();
 	}
+
+	require_once('assets/php/validator.php');
+	require_once('assets/php/database.php');
 ?>
