@@ -28,7 +28,7 @@
 	/**
 	 * Validate password
 	 */
-	$password_validated = $validator->validateAuth($password, $url_hash, $connection);
+	$password_validated = $validator->validateAuth($password_hash, $url_hash, $connection);
 	$password_valid = $password_validated['valid'];
 
 	if (! $password_valid) {

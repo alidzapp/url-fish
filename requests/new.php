@@ -6,7 +6,8 @@
 	$password = isset($_POST['password']) ? (string) $_POST['password'] : false;
 	$content = isset($_POST['content']) ? (string) $_POST['content'] : false;
 
-	$url_hash = hash('sha256', SALT . $url);
+	$url_hash = hash_salt($url);
+	$password_hash = hash_salt($password);
 
 	$type = 'error';
 	$field = 'submit';
@@ -21,7 +22,7 @@
 
 	if ($url_valid && $duration_valid && $password_valid && $content_valid) {
 		$database = new Database();
-		$database->insert($connection, $url_hash, $duration, $password, $content);
+		$database->insert($connection, $url_hash, $duration, $password_hash, $content);
 
 		$type = 'success';
 		$message = 'Your URL is saved, and will be thrown back in the pond after visiting.';

@@ -2,8 +2,8 @@
 	require_once('../../config.php');
 
 	$url = isset($_POST['url']) ? strtolower((string) $_POST['url']) : false;
-
-	$url_hash = hash('sha256', SALT . $url);
+	
+	$url_hash = hash_salt($url);
 
 	$type = 'error';
 	$field = 'submit';

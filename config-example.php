@@ -19,6 +19,7 @@
 		die();
 	}
 
-	require_once('assets/php/validator.php');
 	require_once('assets/php/database.php');
+	require_once('assets/php/functions.php');
+	require_once('assets/php/validator.php');
 ?>
