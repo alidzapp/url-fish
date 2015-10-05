@@ -5,7 +5,7 @@
 		<label for="password">Password</label>
 
 		<div class="input">
-			<input type="password" ng-model="auth.password" placeholder="Fill in password" name="password" id="password" focus>
+			<input type="password" ng-model="auth.password" placeholder="Fill in password" name="password" id="password" required focus>
 		</div>
 
 		<div class="notice" ng-show="notice('password')">{{message}}</div>

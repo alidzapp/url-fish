@@ -7,7 +7,7 @@
 			<label for="url">url<span>.</span>fish<span>/</span></label>
 
 			<div class="input">
-				<input type="text" ng-model="new.url" placeholder="your-url" name="url" id="url" required focus>
+				<input type="text" ng-model="new.url" placeholder="your-url" name="url" id="url" ng-maxlength="50" required focus>
 			</div>
 
 			<div class="notice" ng-show="notice('url')">{{message}}</div>
@@ -63,5 +63,7 @@
 		</div>
 
 	</form>
+
+	<div class="link" ng-show="form.url.$valid"><strong>Visit:</strong> <a target="_blank" ng-href="http://url.fish/{{new.url}}">url.fish/{{new.url}}</a></div>
 
 </div>

@@ -85,3 +85,14 @@
 		}
 	}
 }
+
+.link {
+	@include container();
+	margin-top: 30px;
+	text-align: center;
+
+	a {
+		font-weight: 400;
+		text-decoration: underline;
+	}
+}

@@ -1,8 +1,12 @@
 .footer {
-	@include container;
+	background: $red;
+	bottom: 0;
+	color: rgba(255, 255, 255, 0.8);
 	font-size: 12px;
-	margin: 100px 0 50px 0;
-	opacity: 0.8;
+	left: 0;
+	padding: 15px 0;
+	position: fixed;
+	right: 0;
 	text-align: center;
 	text-transform: lowercase;
 
@@ -13,16 +17,5 @@
 		span {
 			margin: 0 1px;
 		}
-	}
-
-	@media(min-height: 895px) {
-		bottom: 50px;
-		clear: none;
-		float: none;
-		left: 0;
-		margin: 0 auto;
-		position: absolute;
-		right: 0;
-		width: auto;
 	}
 }
