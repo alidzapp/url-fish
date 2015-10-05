@@ -2,7 +2,7 @@
 
 	angular.module('urlfish').controller('URLCtrl', ['$scope', '$location', '$http', '$httpParamSerializer', '$sce', function($scope, $location, $http, $httpParamSerializer, $sce) {
 		$scope.notice = function(field) {
-			if(field == $scope.field) {
+			if (field == $scope.field) {
 				return true;
 			};
 		};
@@ -24,10 +24,7 @@
 			});
 
 		  	fishAuth.then(function(response) {
-		  		//temp
-		  		console.log(response.data);
-		  		
-		  		if(response.data.type) {
+		  		if (response.data.type) {
 		  			$scope.type = response.data.type;
 		  			$scope.field = response.data.field;
 			    	$scope.message = $sce.trustAsHtml(response.data.message);

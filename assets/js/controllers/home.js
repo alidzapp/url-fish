@@ -2,7 +2,7 @@
 
 	angular.module('urlfish').controller('HomeCtrl', ['$scope', '$http', '$httpParamSerializer', function($scope, $http, $httpParamSerializer) {
 		$scope.notice = function(field) {
-			if(field == $scope.field) {
+			if (field == $scope.field) {
 				return true;
 			};
 		};
@@ -17,7 +17,7 @@
 		};
 
 		$scope.active = function(current) {
-			if(current == $scope.new.duration) {
+			if (current == $scope.new.duration) {
 				return 'active';
 			};
 		};
@@ -37,19 +37,21 @@
 			});
 
 		  	fishNew.then(function(response) {
-		  		//temp
-		  		console.log(response.data);
-		  		
-		  		if(response.data.type) {
+		  		if (response.data.type) {
 		  			$scope.type = response.data.type;
 		  			$scope.field = response.data.field;
-			    	$scope.message = response.data.message;
-			    } else {
-			    	$scope.type = 'error';
-			    	$scope.field = 'submit';
-			    	$scope.message = $scope.errors.unknown;
-			    }
-		    });
+					$scope.message = response.data.message;
+
+					if ($scope.type == 'success') {
+						$scope.new.content = undefined;
+					}
+
+				} else {
+					$scope.type = 'error';
+					$scope.field = 'submit';
+					$scope.message = $scope.errors.unknown;
+				}
+			});
 		};
 	}]);
 
