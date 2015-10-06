@@ -22,7 +22,7 @@
 
 	if ($url_valid && $duration_valid && $password_valid && $content_valid) {
 		$database = new Database();
-		$database->insert($connection, $url_hash, $duration, $password_hash, $content);
+		$database->insert($db, $url_hash, $duration, $password_hash, $content);
 
 		$type = 'success';
 		$message = 'Your URL is saved, and will be thrown back in the pond after visiting.';

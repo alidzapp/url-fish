@@ -16,7 +16,7 @@
 	/**
 	 * Validate URL - part 2
 	 */
-	$url_validated = $validator->checkURL($url_hash, $connection, false, false, true);
+	$url_validated = $validator->checkURL($url_hash, $db, false, false, true);
 	$url_valid = $url_validated['valid'];
 
 	if (! $url_valid) {
@@ -28,7 +28,7 @@
 	/**
 	 * Validate password
 	 */
-	$password_validated = $validator->validateAuth($password_hash, $url_hash, $connection);
+	$password_validated = $validator->validateAuth($password_hash, $url_hash, $db);
 	$password_valid = $password_validated['valid'];
 
 	if (! $password_valid) {

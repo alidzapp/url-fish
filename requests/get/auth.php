@@ -18,9 +18,9 @@
 
 	if ($url_valid && $password_valid) {
 		$database = new Database();
-		$secret = $database->getContent($connection, $url_hash);
+		$secret = $database->getContent($db, $url_hash);
 
-		$database->remove($connection, $url_hash);
+		$database->remove($db, $url_hash);
 
 		$type = 'success';
 		$message = esc_output($secret);

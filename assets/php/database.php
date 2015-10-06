@@ -1,9 +1,9 @@
 <?php
 	class Database
 	{
-		public function cron($connection)
+		public function cron($db)
 		{
-			$cron = $connection->prepare("
+			$cron = $db->prepare("
 				DELETE FROM Fish
 				WHERE (duration = 1 AND timestamp < DATE_SUB(NOW(), INTERVAL 1 HOUR))
 				OR (duration = 8 AND timestamp < DATE_SUB(NOW(), INTERVAL 8 HOUR))
@@ -12,9 +12,9 @@
 			$cron->execute();
 		}
 
-		public function insert($connection, $url, $duration, $password, $content)
+		public function insert($db, $url, $duration, $password, $content)
 		{
-			$insert = $connection->prepare("
+			$insert = $db->prepare("
 				INSERT INTO Fish
 				VALUES(:url, :duration, :password, :content, NOW())
 			");
@@ -25,9 +25,9 @@
 			$insert->execute();
 		}
 
-		public function remove($connection, $url)
+		public function remove($db, $url)
 		{
-			$remove = $connection->prepare("
+			$remove = $db->prepare("
 				DELETE FROM Fish
 				WHERE url = :url
 			");
@@ -35,9 +35,9 @@
 			$remove->execute();
 		}
 
-		public function exists($connection, $url)
+		public function exists($db, $url)
 		{	
-			$exists = $connection->prepare("
+			$exists = $db->prepare("
 				SELECT url FROM Fish
 				WHERE url = :url LIMIT 1
 			");
@@ -47,9 +47,9 @@
 			return $exists->fetchColumn();
 		}
 
-		public function isProtected($connection, $url)
+		public function isProtected($db, $url)
 		{	
-			$isProtected = $connection->prepare("
+			$isProtected = $db->prepare("
 				SELECT password FROM Fish
 				WHERE url = :url LIMIT 1
 			");
@@ -59,9 +59,9 @@
 			return $isProtected->fetchColumn();
 		}
 
-		public function getContent($connection, $url)
+		public function getContent($db, $url)
 		{	
-			$getcontent = $connection->prepare("
+			$getcontent = $db->prepare("
 				SELECT content FROM Fish
 				WHERE url = :url LIMIT 1
 			");
@@ -71,9 +71,9 @@
 			return $getcontent->fetchColumn();
 		}
 
-		public function checkPassword($connection, $url)
+		public function checkPassword($db, $url)
 		{	
-			$checkPassword = $connection->prepare("
+			$checkPassword = $db->prepare("
 				SELECT password FROM Fish
 				WHERE url = :url LIMIT 1
 			");
