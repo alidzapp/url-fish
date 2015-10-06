@@ -3,6 +3,9 @@
 <br>
 
 <?php
+	$database = new Database;
+	$url_hash = hash_salt($url);
+	
 	if ($database->exists($connection, $url_hash)) {
 
 		if (! $database->isProtected($connection, $url_hash)) {

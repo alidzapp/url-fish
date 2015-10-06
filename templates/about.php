@@ -6,6 +6,8 @@
 
 		<br>
 
+		<img src="http://url.fish/assets/img/fish.png">
+
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non vulputate tortor. Donec sed cursus eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam massa ante, molestie porta tellus quis, posuere semper diam. Nam non nibh ipsum. Sed porta tellus in nulla suscipit viverra. Curabitur varius turpis eu enim tincidunt, ac porta est vehicula.</p>
 
 		<br>

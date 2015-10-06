@@ -6,16 +6,16 @@
 		$url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : false;
 
 		if ($url) {
-			$validator = new Validator;
-			$database = new Database;
-			
-			$url = $validator->validateRawURL($url);
-			$url_hash = hash_salt($url);
+			require_once('../parts/validation/url.php');
 
-			require_once('../parts/retrieve.php');
+			if ($url_valid) {
+				require_once('../parts/retrieve.php');
+			} else {
+				echo '<div class="information error">' . $url_validated['message'] . '</div>';
+			}
+
 		} else {
-			//temp
-			echo 'no referrer info';
+			echo '<div class="information error">This tool doesn\'t work when referrer information is disabled.</div>';
 		}
 	?>
 
