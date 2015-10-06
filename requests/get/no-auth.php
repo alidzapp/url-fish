@@ -15,12 +15,12 @@
 
 	if ($url_valid) {
 		$database = new Database();
-		$secret = nl2br($database->getContent($connection, $url_hash));
+		$secret = $database->getContent($connection, $url_hash);
 
 		$database->remove($connection, $url_hash);
 
 		$type = 'success';
-		$message = $secret;
+		$message = esc_output($secret);
 	}
 
 	echo json_encode(

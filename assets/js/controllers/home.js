@@ -44,6 +44,7 @@
 
 					if ($scope.type == 'success') {
 						$scope.new.content = undefined;
+						$scope.new.password = undefined;
 					}
 
 				} else {
