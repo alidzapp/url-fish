@@ -27,6 +27,8 @@
 		};
 
 		$scope.submit = function() {
+			$scope.loading = true;
+
 			var fishNew = $http({
 				data: $httpParamSerializer($scope.new),
 				headers: {
@@ -37,6 +39,8 @@
 			});
 
 		  	fishNew.then(function(response) {
+		  		$scope.loading = false;
+
 		  		if (response.data.type) {
 		  			$scope.type = response.data.type;
 		  			$scope.field = response.data.field;

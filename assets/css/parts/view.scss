@@ -2,13 +2,31 @@
 	@include container();
 	margin-top: 80px;
 
+	.view-animate.ng-enter {
+		-webkit-animation: show 0.3s ease-out forwards;
+		animation: show 0.3s ease-out forwards;
+		
+	}
+
+	.view-animate.ng-leave {
+		-webkit-animation: hide 0.3s ease-out forwards;
+		animation: hide 0.3s ease-out forwards;
+	}
+
 	.view {
 		margin: 0 auto;
-		width: 600px;
+		position: relative;
+		width: 760px;
+
+		.view-animate {
+			position: absolute;
+			width: 100%;
+		}
 	}
 
 	.text {
 		line-height: 35px;
+		padding: 0 80px;
 
 		img {
 			float: left;

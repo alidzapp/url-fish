@@ -25,7 +25,7 @@
 		$database->insert($db, $url_hash, $duration, $password_hash, $content);
 
 		$type = 'success';
-		$message = 'Your URL is saved, and will be thrown back in the pond after visiting.';
+		$message = 'Your URL is saved, and will be thrown back in the pond after viewing.';
 	}
 
 	echo json_encode(

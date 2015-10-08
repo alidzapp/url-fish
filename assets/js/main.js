@@ -1,7 +1,8 @@
 ! function() {
 
 	angular.module('urlfish', [
-		'ngRoute'
+		'ngRoute',
+		'ngAnimate'
 	]);
 
 }();
