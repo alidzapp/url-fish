@@ -64,6 +64,4 @@
 
 <div class="link" ng-show="form.url.$valid"><strong>Visit:</strong> <a target="_blank" ng-href="http://url.fish/{{new.url}}">url.fish/{{new.url}}</a></div>
 
-<div class="loading">
-	<img src="http://url.fish/assets/img/fish.png" ng-hide="loading">
-</div>
+<?php require_once('../parts/loading.php'); ?>

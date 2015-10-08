@@ -25,3 +25,5 @@
 </form>
 
 <div class="information secret" ng-show="type == 'success'" ng-bind-html="message"></div>
+
+<?php require_once('../parts/loading.php'); ?>

@@ -1,6 +1,6 @@
 ! function() {
 
-	angular.module('urlfish').controller('URLCtrl', ['$scope', '$location', '$http', '$httpParamSerializer', '$sce', function($scope, $location, $http, $httpParamSerializer, $sce) {
+	angular.module('urlfish').controller('URLCtrl', ['$scope', '$location', '$http', '$timeout', '$httpParamSerializer', '$sce', function($scope, $location, $http, $timeout, $httpParamSerializer, $sce) {
 		$scope.notice = function(field) {
 			if (field == $scope.field) {
 				return true;
@@ -14,6 +14,14 @@
 		};
 
 		$scope.submit = function(type) {
+			$scope.load = true;
+
+			$timeout(function() {
+				if ($scope.load) {
+					$scope.loading = true;
+				}
+			}, 100);
+
 			var fishAuth = $http({
 				data: $httpParamSerializer($scope.auth),
 				headers: {
@@ -24,6 +32,9 @@
 			});
 
 		  	fishAuth.then(function(response) {
+		  		$scope.load = false;
+		  		$scope.loading = false;
+		  		
 		  		if (response.data.type) {
 		  			$scope.type = response.data.type;
 		  			$scope.field = response.data.field;

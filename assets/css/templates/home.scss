@@ -96,9 +96,23 @@
 	@include container();
 	margin-top: 30px;
 
+	.curtain {
+		background: $red-light;
+		height: 100%;
+		left: 0;
+		opacity: 0.5;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
 	img {
+		-webkit-animation: swim 1.5s linear infinite;
+		animation: swim 1.5s linear infinite;
 		display: block;
 		margin: 0 auto;
-		width: 50px;
+		position: relative;
+		width: 40px;
+		z-index: 1;
 	}
 }
