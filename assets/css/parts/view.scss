@@ -34,12 +34,12 @@
 			margin: 15px 30px 20px 0;
 		}
 
-		button {
+		a {
+			float: left;
 			margin-left: 30px;
 
-			a {
+			button {
 				font-weight: 400;
-				text-transform: none;
 			}
 
 			&:first-of-type {

@@ -8,12 +8,12 @@
 
 	<br>
 
-	<button>
-		<a href="https://github.com/luukdv/url-fish">GitHub</a>
-	</button>
+	<a target="_blank" href="https://github.com/luukdv">
+		<button>GitHub</button>
+	</a>
 
-	<button>
-		<a href="https://dribbble.com/luukdv">Dribbble</a>
-	</button>
+	<a target="_blank" href="https://dribbble.com/luukdv">
+		<button>Dribbble</button>
+	</a>
 
 </div>
