@@ -9,10 +9,10 @@
 		if ($url_valid) {
 			require_once('../parts/retrieve.php');
 		} else {
-			echo '<div class="information error">' . $url_validated['message'] . '</div>';
+			require_once('../parts/retrieve/error.php');
 		}
 
 	} else {
-		echo '<div class="information error">This tool doesn\'t work when referrer information is disabled.</div>';
+		require_once('../parts/retrieve/referrer.php');
 	}
 ?>
