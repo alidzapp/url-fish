@@ -4,7 +4,7 @@
 
 	<br>
 
-	<img src="http://url.fish/assets/img/fish.png">
+	<img src="/assets/img/fish.png">
 
 	<p>URL.fish is a tool that allows you to safely store and share sensitive information. Pick a URL, set a lifetime, optionally choose a password and provide the information you need to send. Why? For example: you want to e-mail a password to someone, but don't want to risk someone else reading the mail later on. When you send the url.fish link, the content is burned after reading.</p>
 
