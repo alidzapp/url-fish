@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/all.min.css">
 		<base href="/">
 		<title>URL.fish</title>
+		<?php require_once('analytics.php'); ?>
 	</head>
 
 	<body>

@@ -12,8 +12,8 @@
 			templateUrl: 'templates/about.php'
 		});
 
-		$routeProvider.when('/contact', {
-			templateUrl: 'templates/contact.php'
+		$routeProvider.when('/disclaimer', {
+			templateUrl: 'templates/disclaimer.php'
 		});
 
 		$routeProvider.otherwise({

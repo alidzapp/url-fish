@@ -33,7 +33,7 @@
 				if ($scope.load) {
 					$scope.loading = true;
 				}
-			}, 100);
+			}, 200);
 
 			var fishNew = $http({
 				data: $httpParamSerializer($scope.new),

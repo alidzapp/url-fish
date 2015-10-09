@@ -20,7 +20,7 @@
 				if ($scope.load) {
 					$scope.loading = true;
 				}
-			}, 100);
+			}, 200);
 
 			var fishAuth = $http({
 				data: $httpParamSerializer($scope.auth),
