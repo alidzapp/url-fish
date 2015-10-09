@@ -19,6 +19,9 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
 	gulp.src([
+		'assets/js/angular/angular.min.js',
+		'assets/js/angular/angular-route.min.js',
+		'assets/js/angular/angular-animate.min.js',
 		'assets/js/main.js',
 		'assets/js/controllers/**.js',
 		'assets/js/modules.js',
