@@ -1,7 +1,3 @@
-.home {
-	margin-top: 20px;
-}
-
 .field {
 	@include container;
 	margin-top: 30px;
@@ -55,44 +51,4 @@
 
 .success {
 	text-align: center;
-}
-
-.notice {
-	@include vertical-center();
-	background: $red;
-	border-radius: $radius;
-	padding: 18px 25px;
-	right: 0;
-	width: 200px;
-	word-wrap: break-word;
-
-	&:before {
-		@include vertical-center();
-		border-color: transparent $red transparent transparent;
-		border-style: solid;
-		border-width: 10px 10px 10px 0;
-		content: '';
-		height: 0;
-		left: -10px;
-		width: 0;
-	}
-
-	&.yellow {
-		background: $yellow;
-
-		&:before {
-			border-right-color: $yellow;
-		}
-	}
-}
-
-.link {
-	@include container();
-	margin-top: 30px;
-	text-align: center;
-
-	a {
-		font-weight: 400;
-		text-decoration: underline;
-	}
 }

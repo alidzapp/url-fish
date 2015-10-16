@@ -8,13 +8,10 @@
 	try {
 		$db = new PDO('mysql:host=' . HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
 	} catch(PDOException $e) {
-		echo json_encode(
-			array(
-				'type' => 'error',
-				'field' => 'submit',
-				'message' => 'An unknown error occured. Please try again another time.'
-			)
-		);
+		require_once('parts/head.php');
+		require_once('parts/navigation.php');
+		require_once('parts/view-error.php');
+		require_once('parts/footer.php');
 
 		die();
 	}

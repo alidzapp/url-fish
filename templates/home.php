@@ -1,4 +1,4 @@
-<form class="home" name="form" novalidate>
+<form class="no-title" name="form" novalidate>
 
 	<div class="field">
 
@@ -56,12 +56,16 @@
 
 		<button type="submit" ng-click="submit()">Fish</button>
 
-		<div class="notice yellow" ng-show="notice('submit')">{{message}}</div>
+		<div class="notice yellow" ng-show="notice('submit') && form.$pristine">
+			{{message}}<br><br><a target="_blank" ng-href="http://url.fish/{{link}}">Visit URL</a>
+		</div>
 
 	</div>
 
 </form>
 
-<div class="link" ng-show="form.url.$valid"><strong>Visit:</strong> <a target="_blank" ng-href="http://url.fish/{{new.url}}">url.fish/{{new.url}}</a></div>
+<div ng-show="loading">
 
-<?php require_once('../parts/loading.php'); ?>
+	<?php require_once('../parts/loading.php'); ?>
+	
+</div>

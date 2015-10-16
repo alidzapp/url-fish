@@ -1,5 +1,6 @@
 <?php
 	require_once('../config.php');
+	require_once('../parts/cron.php');
 
 	$url = isset($_POST['url']) ? strtolower((string) $_POST['url']) : false;
 	$duration = isset($_POST['duration']) ? (int) $_POST['duration'] : false;
@@ -21,7 +22,6 @@
 	require_once('../parts/validation/home.php');
 
 	if ($url_valid && $duration_valid && $password_valid && $content_valid) {
-		$database = new Database();
 		$database->insert($db, $url_hash, $duration, $password_hash, $content);
 
 		$type = 'success';

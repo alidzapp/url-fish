@@ -54,8 +54,13 @@
 					$scope.message = response.data.message;
 
 					if ($scope.type == 'success') {
-						$scope.new.content = undefined;
-						$scope.new.password = undefined;
+						$scope.link = $scope.new.url;
+
+						$scope.new = {
+							duration: 1
+						};
+
+						$scope.form.$setPristine();
 					}
 
 				} else {

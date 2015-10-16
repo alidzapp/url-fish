@@ -13,6 +13,6 @@
 		}
 
 	} else {
-		echo '<div class="information">This URL is still available.</div>';
+		require_once('../parts/retrieve/available.php');
 	}
 ?>

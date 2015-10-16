@@ -1,5 +1,6 @@
 <?php
 	require_once('../../config.php');
+	require_once('../../parts/cron.php');
 
 	$url = isset($_POST['url']) ? strtolower((string) $_POST['url']) : false;
 	$password = isset($_POST['password']) ? (string) $_POST['password'] : false;
@@ -17,9 +18,7 @@
 	require_once('../../parts/validation/url/auth.php');
 
 	if ($url_valid && $password_valid) {
-		$database = new Database();
 		$secret = $database->getContent($db, $url_hash);
-
 		$database->remove($db, $url_hash);
 
 		$type = 'success';

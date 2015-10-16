@@ -1,7 +1,7 @@
 <?php
 	require_once('../config.php');
 
-	$url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : false;
+	$url = isset($_SERVER['HTTP_REFERER']) ? strtolower($_SERVER['HTTP_REFERER']) : false;
 
 	if ($url) {
 		require_once('../parts/validation/url.php');

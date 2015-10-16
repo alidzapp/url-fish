@@ -1,21 +1,26 @@
 .footer {
-	background: $red;
-	bottom: 0;
-	color: rgba(255, 255, 255, 0.8);
-	font-size: 12px;
-	left: 0;
-	padding: 15px 0;
-	position: fixed;
-	right: 0;
-	text-align: center;
-	text-transform: lowercase;
+	display: none;
 
-	span {
-		font-weight: 700;
-		margin: 0;
+	@media(min-height: 870px) {
+		background: $red;
+		bottom: 0;
+		color: rgba(255, 255, 255, 0.8);
+		display: block;
+		font-size: 12px;
+		left: 0;
+		padding: 15px 0;
+		position: fixed;
+		right: 0;
+		text-align: center;
+		text-transform: lowercase;
 
 		span {
-			margin: 0 1px;
+			font-weight: 700;
+			margin: 0;
+
+			span {
+				margin: 0 1px;
+			}
 		}
 	}
 }

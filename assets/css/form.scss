@@ -49,6 +49,7 @@ button {
 	border-bottom: 3px solid $gray-border;
 	color: inherit;
 	cursor: pointer;
+	display: block;
 	font-size: 20px;
 	height: 60px;
 	padding: 0 30px;
@@ -79,4 +80,38 @@ button {
 
 :-ms-input-placeholder {  
    color: $gray-light;
+}
+
+.notice {
+	@include vertical-center();
+	background: $red;
+	border-radius: $radius;
+	padding: 18px 25px;
+	right: 0;
+	width: 200px;
+	word-wrap: break-word;
+
+	&:before {
+		@include vertical-center();
+		border-color: transparent $red transparent transparent;
+		border-style: solid;
+		border-width: 10px 10px 10px 0;
+		content: '';
+		height: 0;
+		left: -10px;
+		width: 0;
+	}
+
+	&.yellow {
+		background: $yellow;
+
+		&:before {
+			border-right-color: $yellow;
+		}
+	}
+
+	a {
+		text-decoration: underline;
+		text-transform: none;
+	}
 }
