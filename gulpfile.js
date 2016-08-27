@@ -5,8 +5,7 @@ var gulp = require('gulp'),
 	minify = require('gulp-minify-css'),
 	rename = require('gulp-rename'),
 	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify'),
-	livereload = require('gulp-livereload');
+	uglify = require('gulp-uglify');
 
 gulp.task('css', function() {
 	gulp.src('assets/css/main.scss')
@@ -14,14 +13,13 @@ gulp.task('css', function() {
 	.pipe(rename('all.min.css'))
 	.pipe(minify())
 	.pipe(gulp.dest('assets/css'))
-	.pipe(livereload())
 });
 
 gulp.task('js', function() {
 	gulp.src([
-		'assets/js/angular/angular.min.js',
-		'assets/js/angular/angular-route.min.js',
-		'assets/js/angular/angular-animate.min.js',
+		'node_modules/angular/angular.min.js',
+		'node_modules/angular-route/angular-route.min.js',
+		'node_modules/angular-animate/angular-animate.min.js',
 		'assets/js/main.js',
 		'assets/js/controllers/**.js',
 		'assets/js/modules.js',
@@ -30,11 +28,9 @@ gulp.task('js', function() {
 	.pipe(concat('all.min.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('assets/js'))
-	.pipe(livereload())
 });
 
 gulp.task('watch', function() {
-	livereload.listen();
 	gulp.watch('assets/css/**/*.scss', ['css']);
 	gulp.watch(['assets/js/**/*.js', '!assets/js/all.min.js'], ['js']);
 });
